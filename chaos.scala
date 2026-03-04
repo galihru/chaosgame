@@ -10,7 +10,7 @@ import scala.util.Random
 import scala.math.{max, min, log, sqrt}
 
 // 主程序
-object AdvancedChaosGame {
+object ChaosGame {
   final val WIDTH = 1100
   final val HEIGHT = 800
   final val DEFAULT_VERTICES = 3
@@ -472,4 +472,4 @@ object AdvancedChaosGame {
   }
 } // 结束
 
-object Runner { def main(args:Array[String]): Unit = SwingUtilities.invokeLater(() => AdvancedChaosGame.createAndShowGUI()) }
+object Runner { def main(args:Array[String]): Unit = SwingUtilities.invokeLater(() => ChaosGame.createAndShowGUI()) }
