@@ -1,5 +1,9 @@
 # Chaos Game
 
+| <img src="https://raw.githubusercontent.com/galihru/chaosgame/main/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202026-03-04%20151318.png" width="300"> | <img src="https://raw.githubusercontent.com/galihru/chaosgame/main/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202026-03-04%20151412.png" width="300"> | <img src="https://raw.githubusercontent.com/galihru/chaosgame/main/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202026-03-04%20151438.png" width="300"> |
+| :---: | :---: | :---: |
+| **人工智能自动执行的异常操作将形成初始模式。** | **人工智能形成的模式，并已针对异常结果进行了校正。** | **最终图案结果会不断更新至最小值。** |
+
 ## 一、项目简介
 
 本项目基于**混沌游戏（Chaos Game）**算法生成分形图形，当前实现为经典的**谢尔宾斯基三角形（Sierpiński Triangle）**。
@@ -14,32 +18,38 @@
 
 设三角形三个顶点为：
 
+$$
 [
 A(x_1, y_1), \quad B(x_2, y_2), \quad C(x_3, y_3)
 ]
-
+$$
 任取初始点：
-
+$$
 [
 P_0(x_0, y_0)
 ]
+$$
 
-在第 ( n ) 次迭代时：
+在第 $$( n )$$ 次迭代时：
 
-1. 随机选择一个顶点 ( V \in {A, B, C} )
-2. 按比例 ( r ) 向该顶点移动
+1. 随机选择一个顶点 $$( V \in {A, B, C} )$$
+2. 按比例 $$( r )$$ 向该顶点移动
 
 更新公式为：
 
+$$
 [
 P_{n+1} = (1 - r)P_n + rV
 ]
+$$
 
 当：
 
+$$
 [
 r = \frac{1}{2}
 ]
+$$
 
 时，系统收敛到经典的谢尔宾斯基三角形吸引子。
 
@@ -47,23 +57,27 @@ r = \frac{1}{2}
 
 ## 三、几何与分形性质
 
-### 1️⃣ 自相似性（Self-Similarity）
+### 自相似性（Self-Similarity）
 
 每个大三角形由三个缩放比例为：
 
+$$
 [
 \frac{1}{2}
 ]
+$$
 
 的小三角形组成。
 
-### 2️⃣ 分形维数（Fractal Dimension）
+### 分形维数（Fractal Dimension）
 
 谢尔宾斯基三角形的豪斯多夫维数为：
 
+$$
 [
 D = \frac{\log 3}{\log 2} \approx 1.585
 ]
+$$
 
 说明该结构：
 
@@ -120,15 +134,19 @@ rads = 4
 
 该分形为吸引子集合：
 
+$$
 [
 S = \bigcup_{i=1}^{3} f_i(S)
 ]
+$$
 
 其中：
 
+$$
 [
 f_i(x) = \frac{1}{2}(x + V_i)
 ]
+$$
 
 黑色区域表示不满足递归自相似条件的点集。
 
@@ -139,7 +157,7 @@ f_i(x) = \frac{1}{2}(x + V_i)
 在：
 
 * 顶点固定
-* 比例固定 ( r = 1/2 )
+* 比例固定 $$( r = 1/2 )$$
 * 无附加约束
 
 条件下，
@@ -161,14 +179,16 @@ f_i(x) = \frac{1}{2}(x + V_i)
 
 顶点选择概率可由策略函数控制：
 
+$$
 [
 \pi(V_i) = \frac{e^{Q_i / T}}{\sum_j e^{Q_j / T}}
 ]
+$$
 
 其中：
 
-* ( Q_i )：顶点价值函数
-* ( T )：温度参数
+* $$( Q_i )$$：顶点价值函数
+* $$( T )$$：温度参数
 
 此时系统可能偏向某些区域，产生非对称分形结构。
 
@@ -190,9 +210,9 @@ f_i(x) = \frac{1}{2}(x + V_i)
 
 ## 九、理论背景参考
 
-1. Barnsley, M. F. (1988). *Fractals Everywhere.*
-2. Falconer, K. (2003). *Fractal Geometry: Mathematical Foundations and Applications.*
-3. Iterated Function System (IFS) 理论
+1. [Barnsley, M. F. (1988). *Fractals Everywhere.*](https://github.com/galihru/chaosgame/blob/main/ref/Barnsley%2C%20M.%20F.%20(1988).%20Fractals%20Everywhere.pdf)
+2. [Falconer, K. (2003). *Fractal Geometry: Mathematical Foundations and Applications.*](https://github.com/galihru/chaosgame/blob/main/ref/Fractal%20Geometry%20Mathematical%20Foundations%20and%20Applications.pdf)
+3. [Iterated Function System (IFS) 理论](https://github.com/galihru/chaosgame/blob/main/ref/Iterated%20Function%20System%20(IFS)%20%E7%90%86%E8%AE%BA.pdf)
 
 ---
 
